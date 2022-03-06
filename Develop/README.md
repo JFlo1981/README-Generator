@@ -1,10 +1,10 @@
-<h1 align="center">Fast README>md Generator</h1>
+<h1 align="center">README.md GENERATOR</h1>
 
 ![GitHub license](https://img.shields.io/badge/license-WTFPL-green.svg)
 ![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
 
 ## Description
-<p>A quick generator of README.md files</p>
+<p>This project was developed to allow users to quickly and easily build a README.md by following the command prompts. </p>
 
 ## Table of Contents 
 
@@ -15,21 +15,20 @@
 - [Tests](#tests)
 - [Questions](#questions)
 
-## Installation
-<p>1. Clone the repo
-<br>
-2. Run "npm init -y" in the terminal command line.
-<br>
-3. Run "npm i inquirer" in the terminal command line.
-<br>
-4. Run "node index" in the terminal command line.</p>
 
-## Usage
-<p>To generate a README.md file</p>
-
-To add a screenshot, create an 'assets/images' folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
+*To add a screenshot, create an 'assets/images' folder in your repository and upload your screenshot to it.
+Then, using the relative filepath, replace this text using the following syntax:*
 
     ![alt text](assets/images/screenshot.png)
+
+## Installation
+<p>1. Clone<br>
+2. npm init -y<br>
+3. npm i inquirer<br>
+4. node index</p>
+
+## Usage
+<p>This is for anyone needing a professional file generated quickly and easily. </p>
 
 ## License
 <p>This project is covered by the WTFPL license.</p>
@@ -38,7 +37,7 @@ To add a screenshot, create an 'assets/images' folder in your repository and upl
 <p>This project was built by: Jarod Florence</p>
 
 ## Tests
-<p>Manually</p>
+<p>Manual testing</p>
 
 ## Questions
 Check out my GitHub profile: [JFlo1981](https://github.com/JFlo1981)
