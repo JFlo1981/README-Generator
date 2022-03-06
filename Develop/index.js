@@ -17,6 +17,7 @@
 
 
 // TODO: Include packages needed for this application
+const { error } = require('console');
 const { response } = require('express');
 const fs = require('fs');
 const inquirer = require('inquirer');
@@ -42,7 +43,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'description',
-            message: 'Write a brief description of you project. (required)',
+            message: 'Write a brief description of you project. Motivation? Why did you build it? What problems did you encounter? What did you learn? (required)',
             validate: descriptionInput => {
                 if (descriptionInput) {
                     return true;
@@ -53,9 +54,9 @@ const questions = () => {
             }
         },
         {
-            type: 'input',
+            type: 'editor',
             name: 'installation',
-            message: 'How would a user go about installing the program? (required)',
+            message: 'What steps are required to install and run the project? (when finished entering data, close the window and "save")',
             validate: installInput => {
                 if (installInput) {
                     return true;
@@ -68,7 +69,7 @@ const questions = () => {
         {
             type: 'input',
             name: 'usage',
-            message: 'Provide some usage information about the project. How should this project be used? (required)',
+            message: 'How will this project be used? Target users? (required)',
             validate: usageInput => {
                 if (usageInput) {
                     return true;
@@ -81,12 +82,12 @@ const questions = () => {
         {
             type: 'input',
             name: 'contributions',
-            message: 'How will you handle contribution to the project? (required)',
+            message: 'Who helped build the project? (required)',
             validate: contributeInput => {
                 if (contributeInput) {
                     return true;
                 } else {
-                    console.log('Please enter contribution guidelines!');
+                    console.log('Please enter contributions!');
                     return false;
                 }
             }
@@ -108,11 +109,11 @@ const questions = () => {
             type: 'list',
             name: 'licenses',
             message: 'What license would you like to add to this project? (',
-            choices: ['MIT', 'Mozilla', 'WTFPL']
+            choices: ['ISC', 'MIT', 'Mozilla', 'WTFPL']
         },
         {
             type: 'input',
-            name: 'GitHub-name',
+            name: 'GitHubName',
             message: 'What is you Github user name? (required)',
             validate: githubInput => {
                 if (githubInput) {
@@ -140,15 +141,28 @@ const questions = () => {
     ])
 };
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) {}
+// Function to write README file
+function writeToFile(fileName, data) {
+    fs.writeFileSync(fileName, data, (error) => {
+        if(error) {
+        console.log(error);
+        }
+    })
+}
 
-// TODO: Create a function to initialize app
+// Function to initialize app
 function init() {
     questions().then(response => {
         console.log(response);
+        const markdownData = generatePage(response);
+        // console.log(markdownData);
+        return markdownData;
     })
-}
+    .then(runPage => {
+        console.log(runPage);
+        writeToFile("README.md", runPage)
+    })
+};
 
 // Function call to initialize app
 init();
