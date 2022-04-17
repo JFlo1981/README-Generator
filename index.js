@@ -21,7 +21,7 @@ const { error } = require('console');
 const { response } = require('express');
 const fs = require('fs');
 const inquirer = require('inquirer');
-const generatePage = require('./utils/generateMarkdown.js');
+const generatePage = require('./Develop/utils/generateMarkdown.js');
 
 
 // TODO: Create an array of questions for user input

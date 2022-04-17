@@ -16,11 +16,14 @@ function generateMarkdown(data) {
 - [Tests](#tests)
 - [Questions](#questions)
 
+## Example
 
 *To add a screenshot, create an 'assets/images' folder in your repository and upload your screenshot to it. <br>
 Then, using the relative filepath, replace this text using the following syntax:*
 
     ![alt text](assets/images/screenshot.png)
+
+![alt text](assets/images/readme-screenshot.png)
 
 ## Installation
 <p>${data.installation}</p>
